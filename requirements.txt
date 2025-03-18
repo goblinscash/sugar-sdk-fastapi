@@ -2,3 +2,4 @@ fastapi
 uvicorn
 apscheduler
 redis
+git+https://github.com/velodrome-finance/sugar-sdk

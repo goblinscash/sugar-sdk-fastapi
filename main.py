@@ -154,10 +154,13 @@ async def fetch_all_and_best_routes(from_token, to_token):
 # Quote route
 @app.get("/quote")
 async def quote(token0: str, token1: str, chainId: int, amount: int):
-    try:
-        all_routes, best_route = await fetch_all_and_best_routes(token0.lower(), token1.lower())
-        command_type = "V2_SWAP_EXACT_IN" if not best_route or not isinstance(best_route, list) or not best_route[0].get("fee") else "V3_SWAP_EXACT_IN"
-        return {"data": best_route, "command_type": command_type}
+    try:        
+        if chainId == 84532:
+            return {"data": [{ "from": token0, "stable": False, "to": token1, "factory": "0x5F47613A76C1c01BcE11b3D398de16E38c3d4DCb" }], "command_type": "V2_SWAP_EXACT_IN"}
+        else:
+            all_routes, best_route = await fetch_all_and_best_routes(token0.lower(), token1.lower())
+            command_type = "V2_SWAP_EXACT_IN" if not best_route or not isinstance(best_route, list) or not best_route[0].get("fee") else "V3_SWAP_EXACT_IN"
+            return {"data": best_route, "command_type": command_type}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
