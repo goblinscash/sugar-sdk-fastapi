@@ -1,5 +1,5 @@
-fastapi
+fastapi[standard]
 uvicorn
 apscheduler
 redis
-git+https://github.com/velodrome-finance/sugar-sdk
+git+https://github.com/goblinscash/sugar-sdk
