@@ -12,7 +12,7 @@ from sugar.chains import AsyncBaseChain, AsyncBscChain
 # Connector tokens
 connector_tokens = {
     56: {
-        "0x558225E240D8C73dF754C48b330DE5f281ee99B9", # GOB v2
+        "0xF69B558bfB2215e26C001D30F80E9926168e6880", # GOB v2
         "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", # WBNB
         "0x205f59C72385C82b2328FC1c7776640C8d10f836", # tGOB v1
         "0x767Dc7981a5d58539814110dEA8dd88857164fa1", # tBCH
